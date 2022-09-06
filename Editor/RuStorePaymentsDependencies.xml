@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<dependencies>
+  <androidPackages>
+    <androidPackage spec="ru.rustore.sdk:billingclient:0.0.4"/>
+  </androidPackages>
+</dependencies>

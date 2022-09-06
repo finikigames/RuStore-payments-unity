@@ -19,7 +19,11 @@ namespace RuStore.Billing {
                 if (s_billing == null)
                 {
                     lock (s_syncRoot) {
+                        #if UNITY_EDITOR
+                        s_billing = new RuStoreBillingClientDummy();
+                        #else
                         s_billing = new RuStoreBillingClient();
+                        #endif
                     }
                 }
 
