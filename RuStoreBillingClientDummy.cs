@@ -5,7 +5,7 @@
             
         }
 
-        public void PurchaseProduct(string productId, string orderId, int quantity, string payload) {
+        public void PurchaseProduct(string productId, string orderId, int quantity, string payload = null) {
             
         }
     }
