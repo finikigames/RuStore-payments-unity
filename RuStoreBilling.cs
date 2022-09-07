@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace RuStore.Billing {
@@ -19,11 +18,14 @@ namespace RuStore.Billing {
                 if (s_billing == null)
                 {
                     lock (s_syncRoot) {
-                        #if UNITY_EDITOR
-                        s_billing = new RuStoreBillingClientDummy();
-                        #else
-                        s_billing = new RuStoreBillingClient();
-                        #endif
+#if UNITY_ANDROID
+                        if (s_billing == null && Application.platform == RuntimePlatform.Android) {
+                            s_billing = new RuStoreBillingClient();
+                        }
+#endif
+                        if (s_billing == null) {
+                            s_billing = new RuStoreBillingClientDummy();
+                        }
                     }
                 }
 
